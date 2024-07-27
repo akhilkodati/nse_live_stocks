@@ -1,10 +1,14 @@
 ## nse_live_stocks
 
-Open source unoffical python library for extracting realtime stock data from National Stock Exchange (India) .
+Python library for extracting realtime stock data from National Stock Exchange (India) .
 
 #### Introduction.
 
 nselivestocks library is to collect the real time stock information just by giving the nse symbol.
+
+#### Package link  
+
+**https://pypi.org/project/nse-live-stocks/**
 
 #### Command to install 
 

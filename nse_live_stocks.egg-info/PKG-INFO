@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: nse_live_stocks
-Version: 0.3
+Version: 0.4
 Author: Akhil Kodati
 Author-email: akhilkodati@yahoo.com
 Description-Content-Type: text/markdown
@@ -8,11 +8,15 @@ Requires-Dist: requests>=2.23.0
 
 ## nse_live_stocks
 
-Open source unoffical python library for extracting realtime stock data from National Stock Exchange (India) .
+Python library for extracting realtime stock data from National Stock Exchange (India) .
 
 #### Introduction.
 
 nselivestocks library is to collect the real time stock information just by giving the nse symbol.
+
+#### Package link  
+
+**https://pypi.org/project/nse-live-stocks/**
 
 #### Command to install 
 
