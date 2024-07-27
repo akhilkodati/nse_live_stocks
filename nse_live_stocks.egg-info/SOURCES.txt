@@ -1,0 +1,9 @@
+README.md
+setup.py
+nse_live_stocks/__init__.py
+nse_live_stocks/main.py
+nse_live_stocks.egg-info/PKG-INFO
+nse_live_stocks.egg-info/SOURCES.txt
+nse_live_stocks.egg-info/dependency_links.txt
+nse_live_stocks.egg-info/requires.txt
+nse_live_stocks.egg-info/top_level.txt
