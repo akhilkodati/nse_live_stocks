@@ -5,7 +5,7 @@ with open('README.md') as fileobj:
 
 setup(
     name='nse_live_stocks',
-    version='0.6',
+    version='0.7',
     author="Akhil Kodati",
     author_email="akhilkodati@yahoo.com",
     packages=find_packages(),

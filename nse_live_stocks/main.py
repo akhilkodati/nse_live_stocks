@@ -14,7 +14,7 @@ class Nse():
         self.response = self.session.get(self.url.format(symbol), headers=self.headers, verify=True)
         if self.response.status_code == 200:
             if self.response.json().get('message') != "TypeError: Cannot read property 'length' of undefined":
-                return {"error":False,"nse_symbol":symbol,"current_value":str(self.response.json()['priceInfo']['lastPrice']) ,"date": self.response.json()['preOpenMarket']['lastUpdateTime']}
+                return {"error":False,"nse_symbol":symbol,"current_value":str(self.response.json()['priceInfo']['lastPrice']) ,"date": self.response.json()['metadata']['lastUpdateTime']}
             return {"error":True,"message":"Stock Not Found/Invalid Input."}
         raise Exception(
                 f"Not Found status code: {self.response.status_code}")
