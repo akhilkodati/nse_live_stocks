@@ -4,12 +4,15 @@ Python library for extracting realtime stock data from National Stock Exchange (
 
 #### Introduction.
 
-nselivestocks library is to collect the real time stock information just by giving the nse symbol. This library data accuracy is completely depends upon www.nseindia.com.
+nselivestocks library is to collect the real time stock information just by giving the nse symbol. This library data accuracy is depends upon 'www.nseindia.com'.
 
 ### Features 
-##### Get the Nse stock live price 
-##### Get the nse stock information 
-##### Download historical Data (from v0.8)
+Nse stock live price 
+###
+Nse stock information
+###
+Download historical Data (from v0.8)
+###
 
 #### Package link  
 
