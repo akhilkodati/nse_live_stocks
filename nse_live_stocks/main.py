@@ -1,4 +1,9 @@
 import requests
+import os
+from datetime import datetime
+from io import BytesIO
+import  zipfile 
+from pathlib import Path
 
 class Nse():
     def __init__(self):
@@ -26,6 +31,29 @@ class Nse():
         raise Exception(
                 f"Not Found status code: {self.response.status_code}")
 
-
+    def download_nse_historical_data_csv(self,reqdate,fullpath=None):
+        """ reqdate format is '07-28-2024 """
+        try:
+            date_object = datetime.strptime(reqdate, '%m-%d-%Y').date()
+        except Exception as exec:
+            raise Exception(exec)
+        datastring = date_object.strftime('%d%b%Y')
+        if  date_object > datetime.strptime('07-08-2024', '%m-%d-%Y').date():
+            weburl = "https://www.nseindia.com/api/reports?archives=[{\"name\":\"CM-UDiFF Common Bhavcopy Final (zip)\",\"type\":\"daily-reports\",\"category\":\"capital-market\",\"section\":\"equities\"}]&date="+date_object.strftime('%d-%b-%Y')+"&type=equities&mode=single"
+        else:
+            stringdata = "{}/{}/cm{}bhav.csv.zip".format(date_object.strftime("%Y"),date_object.strftime("%b").upper(),datastring.upper())
+            weburl = 'https://archives.nseindia.com/content/historical/EQUITIES/{}'.format(stringdata)
+        try:
+            resp = self.session.get(weburl,headers=self.headers,verify=True)
+            zipdownload = zipfile.ZipFile(BytesIO(resp.content))
+            if fullpath:
+                zipdownload.extractall(fullpath)
+                resp = {"error":False,"requesteddate":date_object.strftime('%m-%d-%Y'),"message":"File Downloaded to {}".format(fullpath)}
+            else:
+                zipdownload.extractall(str(Path.home())+"/Downloads")
+                resp = {"error":False,"requesteddate":date_object.strftime('%m-%d-%Y'),"message":"File Downloaded to {}".format(str(Path.home())+"/Downloads")}
+            return resp
+        except Exception:
+            return {"error":True,"requesteddate":date_object.strftime('%m-%d-%Y'),"message":"Please Provide valid trading date/invalid trading date format. \n sample format : %m-%d-%Y 07-24-2024"}
 
 """ Developed by Akhil kodati https://github.com/akhilkodati """
